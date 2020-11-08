@@ -49,6 +49,15 @@ rollD5 = fmap d5 roll
 rollD6 = fmap d6 roll
 rollD8 = fmap d8 roll
 
+-- simple random selection for small arrays
+
+pickOne :: [t] -> State Int (Maybe t)
+pickOne [] = return Nothing
+pickOne [a] = return (Just a)
+pickOne [a,b] = fmap (Just . ([a,b] !!)) rollD2
+pickOne [a,b,c] = fmap (Just . ([a,b,c] !!)) rollD3
+pickOne [a,b,c,d] = fmap (Just . ([a,b,c,d] !!)) rollD4
+
 -- scratch notes for reference
 
 -- q = [16, 41, 66, 155, 52, 109, 214, 175, 88, 177, 122, 243, 236, 197, 142, 23]
