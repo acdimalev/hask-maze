@@ -16,7 +16,7 @@ rand_f x =
 
 rand_g x = (x + 9) .&. 15
 
--- trivial combination of rand1 and rand2 for a cycle of 240
+-- trivial combination of rand_f and rand_g for a cycle of 240
 -- excludes values in the range 0..15
 
 rand x =
